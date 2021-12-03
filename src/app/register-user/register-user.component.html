@@ -1,0 +1,141 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">NG USERS</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="/">Inicio </a>
+      <a class="nav-item nav-link active" href="/registro-usuario"
+        >Registrar Usuario</a
+      >
+      <a class="nav-item nav-link" href="/ver-usuarios">Mostrar Usuarios</a>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <form [formGroup]="formulario">
+    <div class="form-group">
+      <div class="form-group">
+        <label class="form-label">Rut: </label>
+        <input
+          type="text"
+          placeholder="12345678-9"
+          name="rut"
+          formControlName="rut"
+          required
+          class="form-control"
+        />
+        <p
+          *ngIf="
+            formReactive.name?.errors?.required && formReactive.name?.touched
+          "
+          class="invalid-feedback"
+        >
+          nombre del usuario es requerido
+        </p>
+      </div>
+      <div class="form-group">
+        <div class="form-group">
+          <label class="form-label">Nombre: </label>
+          <input
+            type="text"
+            placeholder="pepe"
+            name="nombre"
+            formControlName="nombre"
+            required
+            class="form-control"
+          />
+          <p
+            *ngIf="
+              formReactive.name?.errors?.required && formReactive.name?.touched
+            "
+            class="invalid-feedback"
+          >
+            rut del usuario es requerido
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">apellido: </label>
+          <input
+            type="text"
+            placeholder="pepe"
+            name="apellido"
+            formControlName="apellido"
+            required
+            class="form-control"
+          />
+          <p
+            *ngIf="
+              formReactive.name?.errors?.required && formReactive.name?.touched
+            "
+            class="invalid-feedback"
+          >
+            apellido del usuario es requerido
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Correo: </label>
+          <input
+            type="email"
+            placeholder="test@mail.com"
+            name="correo"
+            formControlName="correo"
+            class="form-control"
+            required
+          />
+
+          <p
+            *ngIf="
+              formReactive.correo?.errors?.required &&
+              formReactive.correo?.touched
+            "
+            class="invalid-feedback"
+          >
+            correo del usuario es requerido
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Password: </label>
+          <input
+            type="password"
+            placeholder="pepe"
+            name="password"
+            formControlName="password"
+            required
+            class="form-control"
+          />
+          <p
+            *ngIf="
+              formReactive.name?.errors?.required && formReactive.name?.touched
+            "
+            class="invalid-feedback"
+          >
+            password del usuario es requerido
+          </p>
+        </div>
+
+        <button
+          style="margin-top: 20px"
+          class="btn btn-primary"
+          type="submit"
+          (click)="enviarDatos()"
+          [disabled]="!formulario.valid"
+        >
+          Enviar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
